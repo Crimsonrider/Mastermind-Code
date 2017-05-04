@@ -1,6 +1,9 @@
 
 public abstract class Board {
-	public Board(){
-		System.out.println("test");
-	}
+	int turn;
+	GamePiece [][] board;
+	public abstract void addPegs();
+	public abstract boolean isCorrect();
+	public abstract void initiateTurn();
+	
 }
