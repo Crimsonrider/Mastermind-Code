@@ -98,7 +98,12 @@ public class Mastermind extends Board {
 			System.out.print(board[0][i] + " ");
 		}
 		System.out.println();
-		for (int i = 0; i < board[0].length; i++) {
+		System.out.print("Guess:");
+		for (int i = 0; i < colors.length; i++) {
+			System.out.print(board[turn][i] + " ");
+		}
+		System.out.print("Hints:");
+		for (int i = 4; i < board[0].length; i++) {
 			System.out.print(board[turn][i] + " ");
 		}
 		System.out.println();
