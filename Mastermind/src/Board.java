@@ -11,4 +11,11 @@ public abstract class Board {
 
 	public abstract void initiateTurn();
 
+	public void youWin() {
+		System.out.println("You win! ^-^");
+	}
+	
+	public void youLose() {
+		System.out.println("You lose! D:");
+	}
 }
