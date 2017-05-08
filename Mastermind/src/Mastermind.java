@@ -103,20 +103,20 @@ public class Mastermind extends Board {
 				System.out.print(board[turn][i] + " ");
 			}
 			System.out.println();
+		}
 			System.out.print("Hints: ");
 			for (int i = colors.length; i < board[0].length; i++) {
-				if (board[turn][i] == null)
+				if (PRINT_FOR_DEBUGGING && board[turn][i] == null)
 					System.out.print("none ");
 				else
 					System.out.print(board[turn][i] + " ");
 			}
 			System.out.println();
-		}
 
 		turn++;
 		if (isCorrect()) {
 			youWin();
-		} else if (turn > 2) {
+		} else if (turn > turnLimit) {
 			youLose();
 		} else { // turn <= 2
 			initiateTurn();

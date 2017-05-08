@@ -1,6 +1,7 @@
 
 public abstract class Board {
 	int turn = 1;
+	final int turnLimit = 10;
 	GamePiece[][] board = new GamePiece[11][8]; // first row represents secret
 												// code, the rest are for
 												// guesses
