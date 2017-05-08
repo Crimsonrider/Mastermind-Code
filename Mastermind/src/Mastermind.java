@@ -122,4 +122,12 @@ public class Mastermind extends Board {
 			initiateTurn();
 		}
 	}
+	
+	public String secretCode() {
+		String x="";
+		for (int i = 0; i < colors.length; i++) {
+			x += board[0][i] + " ";
+		}
+		return x;
+	}
 }
