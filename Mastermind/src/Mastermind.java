@@ -18,6 +18,16 @@ public class Mastermind extends Board {
 			secretColorCount[index]++;
 		}
 	}
+	
+	public Mastermind(long theSeed) {
+		Random rand = new Random(theSeed);
+		for (int i = 0; i < colors.length; i++) {
+			int index = rand.nextInt(colors.length);
+			Marble a = new Marble(colors[index], i);
+			board[0][i] = a;
+			secretColorCount[index]++;
+		}
+	}
 
 	public int[] countColors() {
 		int colorCt[] = new int[colors.length];
@@ -36,7 +46,7 @@ public class Mastermind extends Board {
 		for (int i = 0; i < colors.length; i++) {
 			Marble x = (Marble) board[turn][i];
 			Marble parallelM = (Marble) board[0][i];
-
+			
 			if (x.matches(parallelM)) {
 
 				board[turn][i + colors.length] = new Peg("black");
@@ -48,7 +58,6 @@ public class Mastermind extends Board {
 
 				x.hasAMatch();
 			}
-
 		}
 
 		// colorCt now contains the count for each marble color that is
@@ -81,7 +90,7 @@ public class Mastermind extends Board {
 
 	@Override
 	public void initiateTurn() {
-
+		/**
 		System.out.println("Enter " + colors.length + " colors:");
 		String temp;
 		for (int i = 0; i < colors.length; i++) {
@@ -91,6 +100,8 @@ public class Mastermind extends Board {
 			else
 				board[turn][i] = new Marble(temp, i);
 		}
+		*/
+		System.out.println("Turn " + turn);
 		addPegs();
 		if (PRINT_FOR_DEBUGGING) {
 			System.out.print("Secret code: ");
@@ -112,21 +123,36 @@ public class Mastermind extends Board {
 					System.out.print(board[turn][i] + " ");
 			}
 			System.out.println();
-
 		turn++;
+		/**
 		if (isCorrect()) {
 			youWin();
-		} else if (turn > turnLimit) {
+		} 
+		else if (turn > 2) {
 			youLose();
-		} else { // turn <= 2
+		} 
+		else { // turn <= 2
 			initiateTurn();
 		}
+		*/
+		
 	}
 	
 	public String secretCode() {
 		String x="";
 		for (int i = 0; i < colors.length; i++) {
 			x += board[0][i] + " ";
+		}
+		return x;
+	}
+	
+	public String getHints() {
+		String x="";		
+		for (int i = colors.length; i < board[0].length; i++) {
+			if (PRINT_FOR_DEBUGGING && board[turn-1][i] == null)
+				x += "none ";
+			else
+				x += board[turn-1][i] + " ";
 		}
 		return x;
 	}

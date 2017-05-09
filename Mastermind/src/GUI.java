@@ -7,7 +7,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	
 	String[] colors = {"none", "red", "blue", "green", "yellow"};
 	JLabel turnCount;
-	JTextPane messageBox = new JTextPane();
+	public JTextPane messageBox = new JTextPane();
 	
 	JPanel buttonBox = new JPanel();
 		JButton go = new JButton("Go"), reset = new JButton("Reset");
@@ -16,24 +16,24 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		JLabel a1M = new JLabel("Empty"), a2M = new JLabel("Empty"), a3M = new JLabel("Empty"), a4M = new JLabel("Empty");
 		JComboBox<String> a1L = new JComboBox<String> (colors), a2L = new JComboBox<String> (colors), a3L = new JComboBox<String> (colors), a4L = new JComboBox<String> (colors);
 	
-		JPanel b1 = new JPanel(), b2 = new JPanel(), b3 = new JPanel(), b4 = new JPanel();
+	JPanel b1 = new JPanel(), b2 = new JPanel(), b3 = new JPanel(), b4 = new JPanel();
 		JLabel b1M = new JLabel("Empty"), b2M = new JLabel("Empty"), b3M = new JLabel("Empty"), b4M = new JLabel("Empty");
 		JComboBox<String> b1L = new JComboBox<String> (colors), b2L = new JComboBox<String> (colors), b3L = new JComboBox<String> (colors), b4L = new JComboBox<String> (colors);
 		
-	public GUI(Mastermind game) {
+	public GUI() {
 		setTitle("Mastermind");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		//ImageIcon icon = new ImageIcon("images/Other/icon.png");
 		//setIconImage(icon.getImage());
-		this.game = game;
+		this.game = new Mastermind(1);
 		turnCount = new JLabel("Turn " + game.turn);
 		
 		initUI();
 	}
 	
 	public void initUI() {
-		messageBox.setText("test");
+		messageBox.setText("This box contains hints for now.");
 		messageBox.setEditable(false);
 		
 		go.addActionListener(this);
@@ -183,14 +183,38 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		if (e.getSource().equals(go)) {
 			switch(game.turn) {
 				case 1:
-					for (int i=0; i<4; i++) {
-						game.board[1][i] = new Marble((String) a1L.getSelectedItem(), i);
-					}
+					game.board[1][0] = new Marble((String) a1L.getSelectedItem(), 0);
+					game.board[1][1] = new Marble((String) a2L.getSelectedItem(), 1);
+					game.board[1][2] = new Marble((String) a3L.getSelectedItem(), 2);
+					game.board[1][3] = new Marble((String) a4L.getSelectedItem(), 3);
+					game.initiateTurn();
+					turnCount.setText("Turn " + game.turn);
+					messageBox.setText(game.getHints());
+					break;
+				case 2:
+					game.board[2][0] = new Marble((String) b1L.getSelectedItem(), 0);
+					game.board[2][1] = new Marble((String) b2L.getSelectedItem(), 1);
+					game.board[2][2] = new Marble((String) b3L.getSelectedItem(), 2);
+					game.board[2][3] = new Marble((String) b4L.getSelectedItem(), 3);
+					game.initiateTurn();
+					turnCount.setText("Turn " + game.turn);
+					messageBox.setText(game.getHints());
+					break;
+			}
+			if (game.isCorrect()) {
+				game.youWin();
+			} 
+			else if (game.turn > 2) {
+				game.youLose();
 			}
 		}
 		else if (e.getSource().equals(reset)) {
-			System.exit(0);
+			this.game = new Mastermind(2);
+			turnCount.setText("Turn " + game.turn);
+			a1L.setSelectedIndex(0); a2L.setSelectedIndex(0); a3L.setSelectedIndex(0); a4L.setSelectedIndex(0);
+			b1L.setSelectedIndex(0); b2L.setSelectedIndex(0); b3L.setSelectedIndex(0); b4L.setSelectedIndex(0);
+			messageBox.setText("This box contains hints for now.");
 		}
 	}
-
+	
 }

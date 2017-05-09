@@ -1,21 +1,15 @@
 import java.awt.EventQueue;
 
 public class Driver {
-	
+	public static GUI currentGame;
 
 	public static void main(String[] args) {
-		 Mastermind test = new Mastermind();
 		
 		 EventQueue.invokeLater(() -> {
-			 
-	            GUI ex;
-				ex = new GUI(test);
-				ex.setVisible(true);
+				currentGame = new GUI();
+				currentGame.setVisible(true);
 	            
 	        });
-		 
-
-			test.initiateTurn();
 			
 	}
 
