@@ -32,7 +32,7 @@ public abstract class Board {
 		System.out.println("You win! ^-^");
 	}
 
-	/** 
+	/**
 	 * This method prints "You lose! D:"
 	 */
 	public void youLose() {
