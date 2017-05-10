@@ -190,6 +190,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.initiateTurn();
 					turnCount.setText("Turn " + game.turn);
 					messageBox.setText(game.getHints());
+					
+					a1L.setEnabled(false);
+					a2L.setEnabled(false);
+					a3L.setEnabled(false);
+					a4L.setEnabled(false);
+					
 					b1L.setEnabled(true);
 					b2L.setEnabled(true);
 					b3L.setEnabled(true);
@@ -218,6 +224,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 			a1L.setSelectedIndex(0); a2L.setSelectedIndex(0); a3L.setSelectedIndex(0); a4L.setSelectedIndex(0);
 			b1L.setSelectedIndex(0); b2L.setSelectedIndex(0); b3L.setSelectedIndex(0); b4L.setSelectedIndex(0);
 			messageBox.setText("This box contains hints for now.");
+			
+			a1L.setEnabled(true);
+			a2L.setEnabled(true);
+			a3L.setEnabled(true);
+			a4L.setEnabled(true);
 			
 			b1L.setEnabled(false);
 			b2L.setEnabled(false);
