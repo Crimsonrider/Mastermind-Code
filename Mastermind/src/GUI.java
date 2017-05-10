@@ -6,6 +6,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	public Mastermind game;
 	
 	String[] colors = {"none", "red", "blue", "green", "yellow"};
+	ImageIcon[] marbles = {};
+	
 	JLabel turnCount;
 	public JTextPane messageBox = new JTextPane();
 	
@@ -19,6 +21,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	JPanel b1 = new JPanel(), b2 = new JPanel(), b3 = new JPanel(), b4 = new JPanel();
 		JLabel b1M = new JLabel("Empty"), b2M = new JLabel("Empty"), b3M = new JLabel("Empty"), b4M = new JLabel("Empty");
 		JComboBox<String> b1L = new JComboBox<String> (colors), b2L = new JComboBox<String> (colors), b3L = new JComboBox<String> (colors), b4L = new JComboBox<String> (colors);
+		
+	JPanel c1 = new JPanel(), c2 = new JPanel(), c3 = new JPanel(), c4 = new JPanel();
+		JLabel c1M = new JLabel("Empty"), c2M = new JLabel("Empty"), c3M = new JLabel("Empty"), c4M = new JLabel("Empty");
+		JComboBox<String> c1L = new JComboBox<String> (colors), c2L = new JComboBox<String> (colors), c3L = new JComboBox<String> (colors), c4L = new JComboBox<String> (colors);
+		
 		
 	public GUI() {
 		setTitle("Mastermind");
@@ -49,6 +56,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		b3L.addItemListener(this);	b3L.setEnabled(false);
 		b4L.addItemListener(this);	b4L.setEnabled(false);
 		
+		c1L.addItemListener(this);	c1L.setEnabled(false);
+		c2L.addItemListener(this);	c2L.setEnabled(false);
+		c3L.addItemListener(this);	c3L.setEnabled(false);
+		c4L.addItemListener(this);	c4L.setEnabled(false);
+		
 		createButtonBox(buttonBox, turnCount, go, reset, messageBox);
 		createBox(a1, a1L, a1M);
 		createBox(a2, a2L, a2M);
@@ -60,7 +72,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		createBox(b3, b3L, b3M);
 		createBox(b4, b4L, b4M);
 		
-		createLayout(a1, a2, a3, a4, b1, b2, b3, b4, buttonBox);
+		createBox(c1, c1L, c1M);
+		createBox(c2, c2L, c2M);
+		createBox(c3, c3L, c3M);
+		createBox(c4, c4L, c4M);
+		
+		createLayout(a1, a2, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, buttonBox);
 	}
 	
 	private void createButtonBox(JComponent... arg) {
@@ -126,8 +143,14 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 								.addComponent(arg[6])
 								.addComponent(arg[7])
 						)
+						.addGroup(gl.createSequentialGroup()
+								.addComponent(arg[8])
+								.addComponent(arg[9])
+								.addComponent(arg[10])
+								.addComponent(arg[11])
+						)
 				)
-				.addComponent(arg[8])
+				.addComponent(arg[12])
 		);
 
 		gl.setVerticalGroup(gl.createParallelGroup()
@@ -143,9 +166,15 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 							.addComponent(arg[5])
 							.addComponent(arg[6])
 							.addComponent(arg[7])
-						)
+					)
+					.addGroup(gl.createParallelGroup()
+							.addComponent(arg[8])
+							.addComponent(arg[9])
+							.addComponent(arg[10])
+							.addComponent(arg[11])
+					)
 				)
-				.addComponent(arg[8])
+				.addComponent(arg[12])
 		);
 		
 		pack();
@@ -176,6 +205,18 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		}
 		else if (e.getSource().equals(b4L)) {
 			b4M.setText((String) b4L.getSelectedItem());
+		}
+		else if (e.getSource().equals(c1L)) {
+			c1M.setText((String) c1L.getSelectedItem());
+		}
+		else if (e.getSource().equals(c2L)) {
+			c2M.setText((String) c2L.getSelectedItem());
+		}
+		else if (e.getSource().equals(c3L)) {
+			c3M.setText((String) c3L.getSelectedItem());
+		}
+		else if (e.getSource().equals(c4L)) {
+			c4M.setText((String) c4L.getSelectedItem());
 		}
 	}
 
@@ -209,12 +250,31 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.initiateTurn();
 					turnCount.setText("Turn " + game.turn);
 					messageBox.setText(game.getHints());
+					
+					b1L.setEnabled(false);
+					b2L.setEnabled(false);
+					b3L.setEnabled(false);
+					b4L.setEnabled(false);
+					
+					c1L.setEnabled(true);
+					c2L.setEnabled(true);
+					c3L.setEnabled(true);
+					c4L.setEnabled(true);
 					break;
+				case 3:
+					game.board[3][0] = new Marble((String) c1L.getSelectedItem(), 0);
+					game.board[3][1] = new Marble((String) c2L.getSelectedItem(), 1);
+					game.board[3][2] = new Marble((String) c3L.getSelectedItem(), 2);
+					game.board[3][3] = new Marble((String) c4L.getSelectedItem(), 3);
+					game.initiateTurn();
+					turnCount.setText("Turn " + game.turn);
+					messageBox.setText(game.getHints());
+					
 			}
 			if (game.isCorrect()) {
 				game.youWin();
 			} 
-			else if (game.turn > 2) {
+			else if (game.turn > 3) {
 				game.youLose();
 			}
 		}
@@ -223,6 +283,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 			turnCount.setText("Turn " + game.turn);
 			a1L.setSelectedIndex(0); a2L.setSelectedIndex(0); a3L.setSelectedIndex(0); a4L.setSelectedIndex(0);
 			b1L.setSelectedIndex(0); b2L.setSelectedIndex(0); b3L.setSelectedIndex(0); b4L.setSelectedIndex(0);
+			c1L.setSelectedIndex(0); c2L.setSelectedIndex(0); c3L.setSelectedIndex(0); c4L.setSelectedIndex(0);
 			messageBox.setText("This box contains hints for now.");
 			
 			a1L.setEnabled(true);
@@ -234,6 +295,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 			b2L.setEnabled(false);
 			b3L.setEnabled(false);
 			b4L.setEnabled(false);
+			
+			c1L.setEnabled(false);
+			c2L.setEnabled(false);
+			c3L.setEnabled(false);
+			c4L.setEnabled(false);
 		}
 	}
 	
