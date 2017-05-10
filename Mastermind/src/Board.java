@@ -33,7 +33,7 @@ public abstract class Board {
 	}
 
 	/** 
-	 * This method prints "You win! ^-^"
+	 * This method prints "You lose! D:"
 	 */
 	public void youLose() {
 		Driver.currentGame.messageBox.setText("You lose");
