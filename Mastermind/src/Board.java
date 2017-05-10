@@ -24,7 +24,7 @@ public abstract class Board {
 	 */
 	public abstract void initiateTurn();
 
-	/**
+	/** 
 	 * This method prints "You win! ^-^"
 	 */
 	public void youWin() {
