@@ -5,10 +5,22 @@ public class Mastermind extends Board {
 	private final boolean PRINT_FOR_DEBUGGING = true;
 	private final long SEED = 1;
 
-	String[] colors = { "red", "blue", "green", "yellow" };
-	private int[] secretColorCount = { 0, 0, 0, 0 };
-	private Scanner in = new Scanner(System.in);
+	String[] colors = { "red", "blue", "green", "yellow" }; // four color
+															// options for the
+															// marbles
+	private int[] secretColorCount = { 0, 0, 0, 0 }; // indexes correspond to
+														// colors array, tells
+														// how many times the
+														// color it corresponds
+														// to is in the secret
+														// code
+	private Scanner in = new Scanner(System.in); // reads input
 
+	/**
+	 * This constructor creates the secret code using a Random object and a
+	 * for-loop The secret code is the first four terms in the first row of the
+	 * board array.
+	 */
 	public Mastermind() {
 		Random rand = new Random(SEED);
 		for (int i = 0; i < colors.length; i++) {
@@ -19,6 +31,14 @@ public class Mastermind extends Board {
 		}
 	}
 
+	/**
+	 * This constructor creates the secret code using a Random object and a
+	 * for-loop The secret code is the first four terms in the first row of the
+	 * board array.
+	 * 
+	 * @param theSeed
+	 *            -the seed for the random object
+	 */
 	public Mastermind(long theSeed) {
 		Random rand = new Random(theSeed);
 		for (int i = 0; i < colors.length; i++) {
@@ -49,10 +69,10 @@ public class Mastermind extends Board {
 		int[] colorCt = countColors();
 
 		System.out.println("colorCt after copying secretColorCount:");
-		for (int i=0; i<4; i++) {
-			System.out.println("\t" + colorCt[i] + " " + colors[i] );
+		for (int i = 0; i < 4; i++) {
+			System.out.println("\t" + colorCt[i] + " " + colors[i]);
 		}
-		
+
 		for (int i = 0; i < colors.length; i++) {
 			Marble x = (Marble) board[turn][i]; // look at Marble in each index
 												// of guess
@@ -75,10 +95,10 @@ public class Mastermind extends Board {
 
 		// colorCt now contains the count for each marble color that is
 		// available to be matched for a white peg
-		
+
 		System.out.println("colorCt after adding black pegs: ");
-		for (int i=0; i<4; i++) {
-			System.out.println("\t" + colorCt[i] + " " + colors[i] );
+		for (int i = 0; i < 4; i++) {
+			System.out.println("\t" + colorCt[i] + " " + colors[i]);
 		}
 
 		for (int i = 0; i < colors.length; i++) {
