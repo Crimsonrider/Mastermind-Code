@@ -15,7 +15,7 @@ public class Marble extends GamePiece {
 		this.position = position;
 		matched = false;
 	}
-
+	
 	/**
 	 * This accessor method returns if the marble already has a match
 	 * 
