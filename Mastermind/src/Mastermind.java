@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Mastermind extends Board {
 	private final boolean PRINT_FOR_DEBUGGING = true;
-	private final long SEED = 1;
+	private final long SEED = 1; //goes in the first constructor 
 
 	String[] colors = { "red", "blue", "green", "yellow" }; // four color
 															// options for the
