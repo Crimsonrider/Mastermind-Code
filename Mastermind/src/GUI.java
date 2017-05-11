@@ -6,7 +6,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	public Mastermind game;
 	
 	String[] colors = {"none", "red", "blue", "green", "yellow"};
-	ImageIcon[] marbles = {};
+	ImageIcon[] marbles = {new ImageIcon(), new ImageIcon("images/Red.jpg"), new ImageIcon("images/Blue.jpg"), new ImageIcon("images/Green.jpg"), new ImageIcon("images/Yellow.jpg")};
 	
 	JLabel turnCount;
 	public JTextPane messageBox = new JTextPane();
@@ -77,7 +77,9 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		createBox(c3, c3L, c3M);
 		createBox(c4, c4L, c4M);
 		
-		createLayout(a1, a2, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, buttonBox);
+		JLabel temp = new JLabel(marbles[2]);
+		
+		createLayout(a1, temp, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, buttonBox);
 	}
 	
 	private void createButtonBox(JComponent... arg) {
@@ -183,15 +185,19 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	public void itemStateChanged(ItemEvent e) {
 		if (e.getSource().equals(a1L)) {
 			a1M.setText((String) a1L.getSelectedItem());
+			a1M.setIcon(marbles[a1L.getSelectedIndex()]);
 		}
 		else if (e.getSource().equals(a2L)) {
 			a2M.setText((String) a2L.getSelectedItem());
+			a1M.setIcon(marbles[a2L.getSelectedIndex()]);
 		}
 		else if (e.getSource().equals(a3L)) {
 			a3M.setText((String) a3L.getSelectedItem());
+			a3M.setIcon(marbles[a3L.getSelectedIndex()]);
 		}
 		else if (e.getSource().equals(a4L)) {
 			a4M.setText((String) a4L.getSelectedItem());
+			a4M.setIcon(marbles[a4L.getSelectedIndex()]);
 		}
 		
 		else if (e.getSource().equals(b1L)) {
