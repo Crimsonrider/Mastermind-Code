@@ -48,6 +48,11 @@ public class Mastermind extends Board {
 	public void addPegs() {
 		int[] colorCt = countColors();
 
+		System.out.println("colorCt after copying secretColorCount:");
+		for (int i=0; i<4; i++) {
+			System.out.println("\t" + colorCt[i] + " " + colors[i] );
+		}
+		
 		for (int i = 0; i < colors.length; i++) {
 			Marble x = (Marble) board[turn][i]; // look at Marble in each index
 												// of guess
@@ -70,6 +75,11 @@ public class Mastermind extends Board {
 
 		// colorCt now contains the count for each marble color that is
 		// available to be matched for a white peg
+		
+		System.out.println("colorCt after adding black pegs: ");
+		for (int i=0; i<4; i++) {
+			System.out.println("\t" + colorCt[i] + " " + colors[i] );
+		}
 
 		for (int i = 0; i < colors.length; i++) {
 			Marble x = (Marble) board[turn][i];
@@ -77,8 +87,10 @@ public class Mastermind extends Board {
 				continue;
 
 			for (int j = 0; j < colors.length; j++) {
-				if (x.getColor().equals(colors[j]) && colorCt[j] > 0)
+				if (x.getColor().equals(colors[j]) && colorCt[j] > 0) {
 					board[turn][i + colors.length] = new Peg("white");
+					colorCt[j]--;
+				}
 			}
 
 		}
