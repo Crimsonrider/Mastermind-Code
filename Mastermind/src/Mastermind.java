@@ -60,7 +60,6 @@ public class Mastermind extends Board {
 		for (int i = 0; i < colors.length; i++) {
 			colorCt[i] = secretColorCount[i];
 		}
-
 		return colorCt;
 	}
 
