@@ -164,13 +164,16 @@ public class Mastermind extends Board {
 		 */
 
 	}
-
+	
 	public String secretCode() {
-		String x = "";
-		for (int i = 0; i < colors.length; i++) {
-			x += board[0][i] + " ";
+		return secCode(colors.length);
+	}
+	
+	public String secCode(int index) {
+		while(index >= 0){
+			return secCode(index - 1) + " " + board[0][index];
 		}
-		return x;
+		return " ";
 	}
 
 	public String getHints() {
