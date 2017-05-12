@@ -87,14 +87,16 @@ public class Mastermind extends Board {
 					if (parallelM.getColor().equals(colors[j]))
 						colorCt[j] = colorCt[j] - 1;
 				}
-				// Iterator it = colors.asList.iterator();
-				// int n = 0;
-				// while(it.hasNext()) {
-					// if (parallelM.getColor().equals(it.next)) {
-						// colorCt[n] = colorCt[n] - 1;
-					// }
-					// n++;
-				// }
+//				 Iterator it = colors.asList.iterator();
+//				 int n = 0;
+//				 while(it.hasNext()) {
+//					 if (parallelM.getColor().equals(it.next)) {
+//						 System.out.println(colorCt[n]);
+//						 colorCt[n] = colorCt[n] - 1;
+//						 System.out.println(colorCt[n]);
+//					 }
+//					 n++;
+//				 }
 
 				x.hasAMatch();
 			}
