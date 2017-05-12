@@ -185,7 +185,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 			a1M.setIcon(marbles[a1L.getSelectedIndex()]);
 		}
 		else if (e.getSource().equals(a2L)) {
-			a1M.setIcon(marbles[a2L.getSelectedIndex()]);
+			a2M.setIcon(marbles[a2L.getSelectedIndex()]);
 		}
 		else if (e.getSource().equals(a3L)) {
 			a3M.setIcon(marbles[a3L.getSelectedIndex()]);
