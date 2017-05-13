@@ -1,6 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.ArrayList;
+import java.util.Arrays;
 import javax.swing.*;
+import javax.swing.GroupLayout.Alignment;
 
 public class GUI extends JFrame implements ItemListener, ActionListener {
 	public Mastermind game;
@@ -9,7 +12,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	ImageIcon[] marbles = {new ImageIcon(), new ImageIcon("Mastermind/images/Red.jpg"), new ImageIcon("Mastermind/images/Blue.jpg"), new ImageIcon("Mastermind/images/Green.jpg"), new ImageIcon("Mastermind/images/Yellow.jpg")};
 	
 	JLabel turnCount;
-	public JTextPane messageBox = new JTextPane();
+	public JLabel messageBox = new JLabel();
+	private ArrayList <Peg> temp;
 	
 	JPanel buttonBox = new JPanel();
 		JButton go = new JButton("Go"), reset = new JButton("Reset");
@@ -17,11 +21,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	JPanel a1 = new JPanel(), a2 = new JPanel(), a3 = new JPanel(), a4 = new JPanel();
 		JLabel a1M = new JLabel(), a2M = new JLabel(), a3M = new JLabel(), a4M = new JLabel();
 		JComboBox<String> a1L = new JComboBox<String> (colors), a2L = new JComboBox<String> (colors), a3L = new JComboBox<String> (colors), a4L = new JComboBox<String> (colors);
-	
+		
 	JPanel b1 = new JPanel(), b2 = new JPanel(), b3 = new JPanel(), b4 = new JPanel();
 		JLabel b1M = new JLabel(), b2M = new JLabel(), b3M = new JLabel(), b4M = new JLabel();
 		JComboBox<String> b1L = new JComboBox<String> (colors), b2L = new JComboBox<String> (colors), b3L = new JComboBox<String> (colors), b4L = new JComboBox<String> (colors);
-		
+	
 	JPanel c1 = new JPanel(), c2 = new JPanel(), c3 = new JPanel(), c4 = new JPanel();
 		JLabel c1M = new JLabel(), c2M = new JLabel(), c3M = new JLabel(), c4M = new JLabel();
 		JComboBox<String> c1L = new JComboBox<String> (colors), c2L = new JComboBox<String> (colors), c3L = new JComboBox<String> (colors), c4L = new JComboBox<String> (colors);
@@ -54,21 +58,61 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		JLabel k1M = new JLabel(), k2M = new JLabel(), k3M = new JLabel(), k4M = new JLabel();
 		JComboBox<String> k1L = new JComboBox<String> (colors), k2L = new JComboBox<String> (colors), k3L = new JComboBox<String> (colors), k4L = new JComboBox<String> (colors);
 
+	JPanel aPegsA = new JPanel(), aPegsB = new JPanel();
+		JLabel aPeg1 = new JLabel("1"), aPeg2 = new JLabel("2"), aPeg3 = new JLabel("3"), aPeg4 = new JLabel("4");
+	ArrayList <JLabel> aPegs = new ArrayList<JLabel>(Arrays.asList(aPeg1, aPeg2, aPeg3, aPeg4));
+			
+	JPanel bPegsA = new JPanel(), bPegsB = new JPanel();
+		JLabel bPeg1 = new JLabel("1"), bPeg2 = new JLabel("2"), bPeg3 = new JLabel("3"), bPeg4 = new JLabel("4");
+	ArrayList <JLabel> bPegs = new ArrayList<JLabel>(Arrays.asList(bPeg1, bPeg2, bPeg3, bPeg4));	
+	
+	JPanel cPegsA = new JPanel(), cPegsB = new JPanel();
+		JLabel cPeg1 = new JLabel("1"), cPeg2 = new JLabel("2"), cPeg3 = new JLabel("3"), cPeg4 = new JLabel("4");
+	ArrayList <JLabel> cPegs = new ArrayList<JLabel>(Arrays.asList(cPeg1, cPeg2, cPeg3, cPeg4));	
+	
+	JPanel dPegsA = new JPanel(), dPegsB = new JPanel();
+		JLabel dPeg1 = new JLabel("1"), dPeg2 = new JLabel("2"), dPeg3 = new JLabel("3"), dPeg4 = new JLabel("4");
+	ArrayList <JLabel> dPegs = new ArrayList<JLabel>(Arrays.asList(dPeg1, dPeg2, dPeg3, dPeg4));	
+			
+	JPanel ePegsA = new JPanel(), ePegsB = new JPanel();
+		JLabel ePeg1 = new JLabel("1"), ePeg2 = new JLabel("2"), ePeg3 = new JLabel("3"), ePeg4 = new JLabel("4");
+	ArrayList<JLabel> ePegs = new ArrayList<JLabel>(Arrays.asList(ePeg1, ePeg2, ePeg3, ePeg4));
+	
+	JPanel fPegsA = new JPanel(), fPegsB = new JPanel();
+		JLabel fPeg1 = new JLabel("1"), fPeg2 = new JLabel("2"), fPeg3 = new JLabel("3"), fPeg4 = new JLabel("4");
+	ArrayList<JLabel> fPegs = new ArrayList<JLabel>(Arrays.asList(fPeg1, fPeg2, fPeg3, fPeg4));
+	
+	JPanel gPegsA = new JPanel(), gPegsB = new JPanel();
+		JLabel gPeg1 = new JLabel("1"), gPeg2 = new JLabel("2"), gPeg3 = new JLabel("3"), gPeg4 = new JLabel("4");
+	ArrayList<JLabel> gPegs = new ArrayList<JLabel>(Arrays.asList(gPeg1, gPeg2, gPeg3, gPeg4));
+	
+	JPanel hPegsA = new JPanel(), hPegsB = new JPanel();
+		JLabel hPeg1 = new JLabel("1"), hPeg2 = new JLabel("2"), hPeg3 = new JLabel("3"), hPeg4 = new JLabel("4");
+	ArrayList<JLabel> hPegs = new ArrayList<JLabel>(Arrays.asList(hPeg1, hPeg2, hPeg3, hPeg4));
+	
+	JPanel jPegsA = new JPanel(), jPegsB = new JPanel();
+		JLabel jPeg1 = new JLabel("1"), jPeg2 = new JLabel("2"), jPeg3 = new JLabel("3"), jPeg4 = new JLabel("4");
+	ArrayList<JLabel> jPegs = new ArrayList<JLabel>(Arrays.asList(jPeg1, jPeg2, jPeg3, jPeg4));
+	
+	JPanel kPegsA = new JPanel(), kPegsB = new JPanel();
+		JLabel kPeg1 = new JLabel("1"), kPeg2 = new JLabel("2"), kPeg3 = new JLabel("3"), kPeg4 = new JLabel("4");
+	ArrayList<JLabel> kPegs = new ArrayList<JLabel>(Arrays.asList(kPeg1, kPeg2, kPeg3, kPeg4));
+
 	public GUI() {
 		setTitle("Mastermind");
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		//ImageIcon icon = new ImageIcon("images/Other/icon.png");
 		//setIconImage(icon.getImage());
-		this.game = new Mastermind(1);
+		this.game = new Mastermind();
 		turnCount = new JLabel("Turn " + game.turn);
 		
 		initUI();
 	}
 	
 	public void initUI() {
-		messageBox.setText("This box contains hints for now.");
-		messageBox.setEditable(false);
+		//messageBox.setText("This box contains hints for now.");
+		//messageBox.setEditable(false);
 		
 		go.addActionListener(this);
 		reset.addActionListener(this);
@@ -124,6 +168,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		k4L.addItemListener(this);	k4L.setEnabled(false);
 		
 		createButtonBox(buttonBox, turnCount, go, reset, messageBox);
+		
 		createBox(a1, a1L, a1M);
 		createBox(a2, a2L, a2M);
 		createBox(a3, a3L, a3M);
@@ -174,8 +219,47 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		createBox(k3, k3L, k3M);
 		createBox(k4, k4L, k4M);
 		
-		createLayout(a1, a2, a3, a4, b1, b2, b3, b4, c1, c2, c3, c4, d1, d2, d3, d4, e1, e2, e3, e4,
-				f1, f2, f3, f4, g1, g2, g3, g4, h1, h2, h3, h4, j1, j2, j3, j4, k1, k2, k3, k4, buttonBox);
+		createBox(aPegsA, aPeg1, aPeg2);
+		createBox(aPegsB, aPeg3, aPeg4);
+		
+		createBox(bPegsA, bPeg1, bPeg2);
+		createBox(bPegsB, bPeg3, bPeg4);
+		
+		createBox(cPegsA, cPeg1, cPeg2);
+		createBox(cPegsB, cPeg3, cPeg4);
+		
+		createBox(dPegsA, dPeg1, dPeg2);
+		createBox(dPegsB, dPeg3, dPeg4);
+		
+		createBox(ePegsA, ePeg1, ePeg2);
+		createBox(ePegsB, ePeg3, ePeg4);
+		
+		createBox(fPegsA, fPeg1, fPeg2);
+		createBox(fPegsB, fPeg3, fPeg4);
+		
+		createBox(gPegsA, gPeg1, gPeg2);
+		createBox(gPegsB, gPeg3, gPeg4);
+		
+		createBox(hPegsA, hPeg1, hPeg2);
+		createBox(hPegsB, hPeg3, hPeg4);
+		
+		createBox(jPegsA, jPeg1, jPeg2);
+		createBox(jPegsB, jPeg3, jPeg4);
+		
+		createBox(kPegsA, kPeg1, kPeg2);
+		createBox(kPegsB, kPeg3, kPeg4);
+		
+		createLayout(a1, a2, a3, a4, aPegsA, aPegsB, 
+				b1, b2, b3, b4, bPegsA, bPegsB, 
+				c1, c2, c3, c4, cPegsA, cPegsB, 
+				d1, d2, d3, d4, dPegsA, dPegsB,
+				e1, e2, e3, e4, ePegsA, ePegsB,
+				f1, f2, f3, f4, fPegsA, fPegsB,
+				g1, g2, g3, g4, gPegsA, gPegsB,
+				h1, h2, h3, h4, hPegsA, hPegsB, 
+				j1, j2, j3, j4, jPegsA, jPegsB, 
+				k1, k2, k3, k4, kPegsA, kPegsB,
+				buttonBox);
 	}
 	
 	private void createButtonBox(JComponent... arg) {
@@ -208,8 +292,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		gl.setAutoCreateGaps(true);
 		
 		gl.setHorizontalGroup(gl.createParallelGroup()
-				.addComponent(arg[1])
-				.addComponent(arg[2])
+				.addComponent(arg[1], Alignment.CENTER)
+				.addComponent(arg[2], Alignment.CENTER)
 		);
 		
 		gl.setVerticalGroup(gl.createSequentialGroup()
@@ -221,6 +305,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	private void createLayout(JComponent... arg) {
 
 		Container pane = getContentPane();
+		pane.setPreferredSize(new Dimension(750, 850));
 		GroupLayout gl = new GroupLayout(pane);
 		pane.setLayout(gl);
 
@@ -234,14 +319,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 								.addComponent(arg[1])
 								.addComponent(arg[2])
 								.addComponent(arg[3])
-						)
-						.addGroup(gl.createSequentialGroup()
 								.addComponent(arg[4])
 								.addComponent(arg[5])
-								.addComponent(arg[6])
-								.addComponent(arg[7])
 						)
 						.addGroup(gl.createSequentialGroup()
+								.addComponent(arg[6])
+								.addComponent(arg[7])
 								.addComponent(arg[8])
 								.addComponent(arg[9])
 								.addComponent(arg[10])
@@ -252,15 +335,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 								.addComponent(arg[13])
 								.addComponent(arg[14])
 								.addComponent(arg[15])
-						)
-						.addGroup(gl.createSequentialGroup()
 								.addComponent(arg[16])
 								.addComponent(arg[17])
+						)
+						.addGroup(gl.createSequentialGroup()
 								.addComponent(arg[18])
 								.addComponent(arg[19])
-						)
-						//row f
-						.addGroup(gl.createSequentialGroup()
 								.addComponent(arg[20])
 								.addComponent(arg[21])
 								.addComponent(arg[22])
@@ -271,14 +351,13 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 								.addComponent(arg[25])
 								.addComponent(arg[26])
 								.addComponent(arg[27])
-						)
-						.addGroup(gl.createSequentialGroup()
 								.addComponent(arg[28])
 								.addComponent(arg[29])
+						)
+						//row f
+						.addGroup(gl.createSequentialGroup()
 								.addComponent(arg[30])
 								.addComponent(arg[31])
-						)
-						.addGroup(gl.createSequentialGroup()
 								.addComponent(arg[32])
 								.addComponent(arg[33])
 								.addComponent(arg[34])
@@ -289,9 +368,35 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 								.addComponent(arg[37])
 								.addComponent(arg[38])
 								.addComponent(arg[39])
+								.addComponent(arg[40])
+								.addComponent(arg[41])
 						)
-				)
-				.addComponent(arg[40])
+						.addGroup(gl.createSequentialGroup()
+								.addComponent(arg[42])
+								.addComponent(arg[43])
+								.addComponent(arg[44])
+								.addComponent(arg[45])
+								.addComponent(arg[46])
+								.addComponent(arg[47])
+						)
+						.addGroup(gl.createSequentialGroup()
+								.addComponent(arg[48])
+								.addComponent(arg[49])
+								.addComponent(arg[50])
+								.addComponent(arg[51])
+								.addComponent(arg[52])
+								.addComponent(arg[53])
+						)
+						.addGroup(gl.createSequentialGroup()
+								.addComponent(arg[54])
+								.addComponent(arg[55])
+								.addComponent(arg[56])
+								.addComponent(arg[57])
+								.addComponent(arg[58])
+								.addComponent(arg[59])
+						)
+					)
+					.addComponent(arg[60])
 		);
 
 		gl.setVerticalGroup(gl.createParallelGroup()
@@ -301,14 +406,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 							.addComponent(arg[1])
 							.addComponent(arg[2])
 							.addComponent(arg[3])
-					)
-					.addGroup(gl.createParallelGroup()
 							.addComponent(arg[4])
 							.addComponent(arg[5])
-							.addComponent(arg[6])
-							.addComponent(arg[7])
 					)
 					.addGroup(gl.createParallelGroup()
+							.addComponent(arg[6])
+							.addComponent(arg[7])
 							.addComponent(arg[8])
 							.addComponent(arg[9])
 							.addComponent(arg[10])
@@ -319,15 +422,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 							.addComponent(arg[13])
 							.addComponent(arg[14])
 							.addComponent(arg[15])
-					)
-					.addGroup(gl.createParallelGroup()
 							.addComponent(arg[16])
 							.addComponent(arg[17])
+					)
+					.addGroup(gl.createParallelGroup()
 							.addComponent(arg[18])
 							.addComponent(arg[19])
-					)
-					//row f
-					.addGroup(gl.createParallelGroup()
 							.addComponent(arg[20])
 							.addComponent(arg[21])
 							.addComponent(arg[22])
@@ -338,14 +438,12 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 							.addComponent(arg[25])
 							.addComponent(arg[26])
 							.addComponent(arg[27])
-					)
-					.addGroup(gl.createParallelGroup()
 							.addComponent(arg[28])
 							.addComponent(arg[29])
-							.addComponent(arg[30])
-							.addComponent(arg[31])
 					)
 					.addGroup(gl.createParallelGroup()
+							.addComponent(arg[30])
+							.addComponent(arg[31])
 							.addComponent(arg[32])
 							.addComponent(arg[33])
 							.addComponent(arg[34])
@@ -356,9 +454,35 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 							.addComponent(arg[37])
 							.addComponent(arg[38])
 							.addComponent(arg[39])
+							.addComponent(arg[40])
+							.addComponent(arg[41])
+					)
+					.addGroup(gl.createParallelGroup()
+							.addComponent(arg[42])
+							.addComponent(arg[43])
+							.addComponent(arg[44])
+							.addComponent(arg[45])
+							.addComponent(arg[46])
+							.addComponent(arg[47])
+					)
+					.addGroup(gl.createParallelGroup()
+							.addComponent(arg[48])
+							.addComponent(arg[49])
+							.addComponent(arg[50])
+							.addComponent(arg[51])
+							.addComponent(arg[52])
+							.addComponent(arg[53])
+					)
+					.addGroup(gl.createParallelGroup()
+							.addComponent(arg[54])
+							.addComponent(arg[55])
+							.addComponent(arg[56])
+							.addComponent(arg[57])
+							.addComponent(arg[58])
+							.addComponent(arg[59])
 					)
 				)
-				.addComponent(arg[40])
+				.addComponent(arg[60])
 		);
 		
 		pack();
@@ -497,8 +621,9 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[1][2] = new Marble((String) a3L.getSelectedItem(), 2);
 					game.board[1][3] = new Marble((String) a4L.getSelectedItem(), 3);
 					game.initiateTurn();
+					
 					turnCount.setText("Turn 2");
-					messageBox.setText(game.getHints());
+					setPegs();
 					
 					a1L.setEnabled(false);
 					a2L.setEnabled(false);
@@ -509,6 +634,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					b2L.setEnabled(true);
 					b3L.setEnabled(true);
 					b4L.setEnabled(true);
+					
 					break;
 				case 2:
 					game.board[2][0] = new Marble((String) b1L.getSelectedItem(), 0);
@@ -516,8 +642,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[2][2] = new Marble((String) b3L.getSelectedItem(), 2);
 					game.board[2][3] = new Marble((String) b4L.getSelectedItem(), 3);
 					game.initiateTurn();
+					//messageBox.setText(game.getHints());
+
 					turnCount.setText("Turn 3");
-					messageBox.setText(game.getHints());
+					setPegs();
 					
 					b1L.setEnabled(false);
 					b2L.setEnabled(false);
@@ -536,7 +664,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[3][3] = new Marble((String) c4L.getSelectedItem(), 3);
 					game.initiateTurn();
 					turnCount.setText("Turn 4");
-					messageBox.setText(game.getHints());
+					setPegs();
+					//messageBox.setText(game.getHints());
 					
 					c1L.setEnabled(false);
 					c2L.setEnabled(false);
@@ -555,7 +684,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[4][3] = new Marble((String) d4L.getSelectedItem(), 3);
 					game.initiateTurn();
 					turnCount.setText("Turn " + 5);
-					messageBox.setText(game.getHints());
+					setPegs();
+					//messageBox.setText(game.getHints());
 					
 					d1L.setEnabled(false);
 					d2L.setEnabled(false);
@@ -574,7 +704,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[5][3] = new Marble((String) e4L.getSelectedItem(), 3);
 					game.initiateTurn();
 					turnCount.setText("Turn " + 6);
-					messageBox.setText(game.getHints());
+					setPegs();
+					//messageBox.setText(game.getHints());
 					
 					e1L.setEnabled(false);
 					e2L.setEnabled(false);
@@ -593,7 +724,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[6][3] = new Marble((String) f4L.getSelectedItem(), 3);
 					game.initiateTurn();
 					turnCount.setText("Turn " + 7);
-					messageBox.setText(game.getHints());
+					setPegs();
+					//messageBox.setText(game.getHints());
 					
 					f1L.setEnabled(false);
 					f2L.setEnabled(false);
@@ -612,7 +744,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[7][3] = new Marble((String) g4L.getSelectedItem(), 3);
 					game.initiateTurn();
 					turnCount.setText("Turn " + 8);
-					messageBox.setText(game.getHints());
+					setPegs();
+					//messageBox.setText(game.getHints());
 					
 					g1L.setEnabled(false);
 					g2L.setEnabled(false);
@@ -631,7 +764,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[8][3] = new Marble((String) h4L.getSelectedItem(), 3);
 					game.initiateTurn();
 					turnCount.setText("Turn " + 9);
-					messageBox.setText(game.getHints());
+					setPegs();
+					//messageBox.setText(game.getHints());
 					
 					h1L.setEnabled(false);
 					h2L.setEnabled(false);
@@ -650,7 +784,8 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[9][3] = new Marble((String) j4L.getSelectedItem(), 3);
 					game.initiateTurn();
 					turnCount.setText("Turn " + 10);
-					messageBox.setText(game.getHints());
+					setPegs();
+					//messageBox.setText(game.getHints());
 					
 					j1L.setEnabled(false);
 					j2L.setEnabled(false);
@@ -669,30 +804,63 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					game.board[10][3] = new Marble((String) k4L.getSelectedItem(), 3);
 					game.initiateTurn();
 					turnCount.setText("Turn -");
-					messageBox.setText(game.getHints());
+					setPegs();
+					//messageBox.setText(game.getHints());
 					
 					k1L.setEnabled(false);
 					k2L.setEnabled(false);
 					k3L.setEnabled(false);
 					k4L.setEnabled(false);
 					
-					go.setEnabled(false);
 					break;
 			}
 			if (game.isCorrect()) {
+				go.setEnabled(false);
 				game.youWin();
 			} 
 			else if (game.turn > game.turnLimit) {
+				go.setEnabled(false);
 				game.youLose();
 			}
 		}
 		else if (e.getSource().equals(reset)) {
-			this.game = new Mastermind(2);
+			this.game = new Mastermind();
 			turnCount.setText("Turn " + game.turn);
 			a1L.setSelectedIndex(0); a2L.setSelectedIndex(0); a3L.setSelectedIndex(0); a4L.setSelectedIndex(0);
 			b1L.setSelectedIndex(0); b2L.setSelectedIndex(0); b3L.setSelectedIndex(0); b4L.setSelectedIndex(0);
 			c1L.setSelectedIndex(0); c2L.setSelectedIndex(0); c3L.setSelectedIndex(0); c4L.setSelectedIndex(0);
-			messageBox.setText("This box contains hints for now.");
+			d1L.setSelectedIndex(0); d2L.setSelectedIndex(0); d3L.setSelectedIndex(0); d4L.setSelectedIndex(0);
+			e1L.setSelectedIndex(0); e2L.setSelectedIndex(0); e3L.setSelectedIndex(0); e4L.setSelectedIndex(0);
+			f1L.setSelectedIndex(0); f2L.setSelectedIndex(0); f3L.setSelectedIndex(0); f4L.setSelectedIndex(0);
+			g1L.setSelectedIndex(0); g2L.setSelectedIndex(0); g3L.setSelectedIndex(0); g4L.setSelectedIndex(0);
+			h1L.setSelectedIndex(0); h2L.setSelectedIndex(0); h3L.setSelectedIndex(0); h4L.setSelectedIndex(0);
+			j1L.setSelectedIndex(0); j2L.setSelectedIndex(0); j3L.setSelectedIndex(0); j4L.setSelectedIndex(0);
+			k1L.setSelectedIndex(0); k2L.setSelectedIndex(0); k3L.setSelectedIndex(0); k4L.setSelectedIndex(0);
+			
+			for (int i=1; i<=4; i++) {
+				aPegs.get(i-1).setIcon(new ImageIcon());
+				aPegs.get(i-1).setText(i+"");
+				bPegs.get(i-1).setIcon(new ImageIcon());
+				bPegs.get(i-1).setText(i+"");
+				cPegs.get(i-1).setIcon(new ImageIcon());
+				cPegs.get(i-1).setText(i+"");
+				dPegs.get(i-1).setIcon(new ImageIcon());
+				dPegs.get(i-1).setText(i+"");
+				ePegs.get(i-1).setIcon(new ImageIcon());
+				ePegs.get(i-1).setText(i+"");
+				fPegs.get(i-1).setIcon(new ImageIcon());
+				fPegs.get(i-1).setText(i+"");
+				gPegs.get(i-1).setIcon(new ImageIcon());
+				gPegs.get(i-1).setText(i+"");
+				hPegs.get(i-1).setIcon(new ImageIcon());
+				hPegs.get(i-1).setText(i+"");
+				jPegs.get(i-1).setIcon(new ImageIcon());
+				jPegs.get(i-1).setText(i+"");
+				kPegs.get(i-1).setIcon(new ImageIcon());
+				kPegs.get(i-1).setText(i+"");
+			}
+
+			go.setEnabled(true);
 			
 			a1L.setEnabled(true);
 			a2L.setEnabled(true);
@@ -743,6 +911,23 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 			k2L.setEnabled(false);
 			k3L.setEnabled(false);
 			k4L.setEnabled(false);
+		}
+	}
+	
+	
+	private void setPegs() {
+		int[] temp = game.getThePegs();
+		ImageIcon[] pegs = new ImageIcon[] {new ImageIcon("Mastermind/images/black.jpg"), new ImageIcon("Mastermind/images/white.jpg"), new ImageIcon()};
+		switch(game.turn) {
+			case 2:
+				int i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						aPegs.get(i).setIcon(pegs[j]);
+						i++;
+						temp[j]--;
+					}
+				}
 		}
 	}
 	

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -22,7 +23,8 @@ public class Mastermind extends Board {
 	 * board array.
 	 */
 	public Mastermind() {
-		Random rand = new Random(SEED);
+		//Random rand = new Random(SEED);
+		Random rand = new Random();
 		for (int i = 0; i < colors.length; i++) {
 			int index = rand.nextInt(colors.length);
 			Marble a = new Marble(colors[index], i);
@@ -195,5 +197,20 @@ public class Mastermind extends Board {
 				x += board[turn - 1][i] + " ";
 		}
 		return x;
+	}
+
+	
+	public int[] getThePegs() {
+		int[] temp = new int[] {0, 0, 0};
+		for (int i=0; i<4; i++) {
+			Peg x = (Peg)board[turn-1][i+4];
+			if(x == null)
+				temp[2]++;
+			else if(x.isWhite())
+				temp[1]++;
+			else
+				temp[0]++;
+		}
+		return temp;
 	}
 }
