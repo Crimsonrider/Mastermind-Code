@@ -28,7 +28,7 @@ public abstract class Board {
 	 * This method prints "You win! ^-^"
 	 */
 	public void youWin() {
-		Driver.currentGame.messageBox.setText("You win");
+		Driver.currentGame.messageBox.setText("You win! ^-^");
 		System.out.println("You win! ^-^");
 	}
 
@@ -36,7 +36,7 @@ public abstract class Board {
 	 * This method prints "You lose! D:"
 	 */
 	public void youLose() {
-		Driver.currentGame.messageBox.setText("You lose");
+		Driver.currentGame.messageBox.setText("You lose! D:");
 		System.out.println("You lose! D:");
 	}
 }
