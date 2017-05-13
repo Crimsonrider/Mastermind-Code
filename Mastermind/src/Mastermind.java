@@ -1,16 +1,30 @@
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Mastermind extends Board {
 	private final boolean PRINT_FOR_DEBUGGING = true;
-	private final long SEED = 1;
+	private final long SEED = 1; // goes in the first constructor
 
-	String[] colors = { "red", "blue", "green", "yellow" };
-	private int[] secretColorCount = { 0, 0, 0, 0 };
-	private Scanner in = new Scanner(System.in);
+	String[] colors = { "red", "blue", "green", "yellow" }; // four color
+															// options for the
+															// marbles
+	private int[] secretColorCount = { 0, 0, 0, 0 }; // indexes correspond to
+														// colors array, tells
+														// how many times the
+														// color it corresponds
+														// to is in the secret
+														// code
+	private Scanner in = new Scanner(System.in); // reads input
 
+	/**
+	 * This constructor creates the secret code using a Random object and a
+	 * for-loop The secret code is the first four terms in the first row of the
+	 * board array.
+	 */
 	public Mastermind() {
-		Random rand = new Random(SEED);
+		// Random rand = new Random(SEED);
+		Random rand = new Random();
 		for (int i = 0; i < colors.length; i++) {
 			int index = rand.nextInt(colors.length);
 			Marble a = new Marble(colors[index], i);
@@ -19,6 +33,14 @@ public class Mastermind extends Board {
 		}
 	}
 
+	/**
+	 * This constructor creates the secret code using a Random object and a
+	 * for-loop The secret code is the first four terms in the first row of the
+	 * board array.
+	 * 
+	 * @param theSeed
+	 *            -the seed for the random object
+	 */
 	public Mastermind(long theSeed) {
 		Random rand = new Random(theSeed);
 		for (int i = 0; i < colors.length; i++) {
@@ -40,13 +62,20 @@ public class Mastermind extends Board {
 		for (int i = 0; i < colors.length; i++) {
 			colorCt[i] = secretColorCount[i];
 		}
-
 		return colorCt;
 	}
 
 	@Override
+	/**
+	 * This method
+	 */
 	public void addPegs() {
 		int[] colorCt = countColors();
+
+		System.out.println("colorCt after copying secretColorCount:");
+		for (int i = 0; i < 4; i++) {
+			System.out.println("\t" + colorCt[i] + " " + colors[i]);
+		}
 
 		for (int i = 0; i < colors.length; i++) {
 			Marble x = (Marble) board[turn][i]; // look at Marble in each index
@@ -63,6 +92,16 @@ public class Mastermind extends Board {
 					if (parallelM.getColor().equals(colors[j]))
 						colorCt[j] = colorCt[j] - 1;
 				}
+				// Iterator it = colors.asList.iterator();
+				// int n = 0;
+				// while(it.hasNext()) {
+				// if (parallelM.getColor().equals(it.next)) {
+				// System.out.println(colorCt[n]);
+				// colorCt[n] = colorCt[n] - 1;
+				// System.out.println(colorCt[n]);
+				// }
+				// n++;
+				// }
 
 				x.hasAMatch();
 			}
@@ -71,14 +110,21 @@ public class Mastermind extends Board {
 		// colorCt now contains the count for each marble color that is
 		// available to be matched for a white peg
 
+		System.out.println("colorCt after adding black pegs: ");
+		for (int i = 0; i < 4; i++) {
+			System.out.println("\t" + colorCt[i] + " " + colors[i]);
+		}
+
 		for (int i = 0; i < colors.length; i++) {
 			Marble x = (Marble) board[turn][i];
 			if (x.hasBeenMatched())
 				continue;
 
 			for (int j = 0; j < colors.length; j++) {
-				if (x.getColor().equals(colors[j]) && colorCt[j] > 0)
+				if (x.getColor().equals(colors[j]) && colorCt[j] > 0) {
 					board[turn][i + colors.length] = new Peg("white");
+					colorCt[j]--;
+				}
 			}
 
 		}
@@ -86,6 +132,11 @@ public class Mastermind extends Board {
 	}
 
 	@Override
+	/**
+	 * This method checks if the marble is in the right color and place
+	 * @return true if a black peg must be placed
+	 * @return false if a white peg or no peg must be placed. 
+	 */
 	public boolean isCorrect() {
 		for (int i = 0; i < colors.length; i++) {
 			if (((Peg) board[turn - 1][i + colors.length]) == null)
@@ -97,6 +148,11 @@ public class Mastermind extends Board {
 	}
 
 	@Override
+	/**
+	 * This method starts the next turn
+	 * 
+	 * 
+	 */
 	public void initiateTurn() {
 		/**
 		 * System.out.println("Enter " + colors.length + " colors:"); String
@@ -127,21 +183,42 @@ public class Mastermind extends Board {
 		}
 		System.out.println();
 		turn++;
-		/**
-		 * if (isCorrect()) { youWin(); } else if (turn > 2) { youLose(); } else
-		 * { // turn <= 2 initiateTurn(); }
-		 */
 
-	}
-
-	public String secretCode() {
-		String x = "";
-		for (int i = 0; i < colors.length; i++) {
-			x += board[0][i] + " ";
+		if (isCorrect()) {
+			youWin();
+		} else if (turn > 2) {
+			youLose();
+		} else {
+			// turn <= 2 initiateTurn();
 		}
-		return x;
+
 	}
 
+	/**
+	 * returns the secret code by calling the recursive method secCode(index)
+	 * 
+	 * @return the colors of the four marbles in the secret code
+	 */
+	public String secretCode() {
+		return secCode(colors.length);
+	}
+
+	/**
+	 * recursive method to return the secret code
+	 * 
+	 * @return the colors of the four marbles in the secret code
+	 */
+	public String secCode(int index) {
+		while (index >= 0) {
+			return secCode(index - 1) + " " + board[0][index];
+		}
+		return " ";
+	}
+
+	/**
+	 * 
+	 * @return the
+	 */
 	public String getHints() {
 		String x = "";
 		for (int i = colors.length; i < board[0].length; i++) {
@@ -151,5 +228,23 @@ public class Mastermind extends Board {
 				x += board[turn - 1][i] + " ";
 		}
 		return x;
+	}
+
+	/**
+	 * @return an array with the number of black pegs, white pegs, and null pegs
+	 *         respectively
+	 */
+	public int[] getThePegs() {
+		int[] temp = new int[] { 0, 0, 0 };
+		for (int i = 0; i < 4; i++) {
+			Peg x = (Peg) board[turn - 1][i + 4];
+			if (x == null)
+				temp[2]++;
+			else if (x.isWhite())
+				temp[1]++;
+			else
+				temp[0]++;
+		}
+		return temp;
 	}
 }
