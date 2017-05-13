@@ -10,8 +10,8 @@ public class Peg extends GamePiece {
 		color = c;
 	}
 
-	/**
-	 * checks if the peg is white
+	/** 
+	 * This method checks if the peg is white
 	 */
 	public boolean isWhite() {
 		return (getColor().equals("white"));

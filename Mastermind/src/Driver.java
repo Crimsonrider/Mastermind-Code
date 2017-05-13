@@ -10,6 +10,7 @@ public class Driver {
 			currentGame.setVisible(true);
 
 		});
+		
 		Marble m1 = new Marble("red", 1);
 		Marble m2 = new Marble("red", 2);
 		System.out.println("Testing matches method");
