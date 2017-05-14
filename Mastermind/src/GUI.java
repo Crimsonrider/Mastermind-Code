@@ -972,7 +972,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	/**
 	 * Interacts with the Mastermind game to set hints for the user,
 	 * displaying black pegs, white pegs, or no pegs, respectively,
-	 * based on the number of the next turn
+	 * based on the number of the next turn.
 	 */
 	private void setPegs() {
 		//both arrays are size 3 where index 0 is black, 1 is white, and 2 is null
