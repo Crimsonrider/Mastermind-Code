@@ -87,21 +87,22 @@ public class Mastermind extends Board {
 				// if they match put a black peg
 				board[turn][i + colors.length] = new Peg("black");
 
-				for (int j = 0; j < colors.length; j++) {
-					// subtract from the count of the corresponding color
-					if (parallelM.getColor().equals(colors[j]))
-						colorCt[j] = colorCt[j] - 1;
+				// for (int j = 0; j < colors.length; j++) {
+				// // subtract from the count of the corresponding color
+				// if (parallelM.getColor().equals(colors[j]))
+				// colorCt[j] = colorCt[j] - 1;
+				// }
+				List<String> list = Arrays.asList(colors);
+				Iterator<String> it = list.iterator();
+				int n = 0;
+				while (it.hasNext()) {
+					if (parallelM.getColor().equals(it.next())) {
+						System.out.println(colorCt[n]);
+						colorCt[n] = colorCt[n] - 1;
+						System.out.println(colorCt[n]);
+					}
+					n++;
 				}
-				// Iterator it = colors.asList.iterator();
-				// int n = 0;
-				// while(it.hasNext()) {
-				// if (parallelM.getColor().equals(it.next)) {
-				// System.out.println(colorCt[n]);
-				// colorCt[n] = colorCt[n] - 1;
-				// System.out.println(colorCt[n]);
-				// }
-				// n++;
-				// }
 
 				x.hasAMatch();
 			}
