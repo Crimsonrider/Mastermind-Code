@@ -23,8 +23,8 @@ public abstract class GamePiece {
 	/**
 	 * This mutator method sets the color of the piece
 	 * 
-	 * @param the
-	 *            name of the new color in String format
+	 * @param c
+	 *            - the name of the new color in String format
 	 */
 	public void setColor(String c) {
 		color = c;

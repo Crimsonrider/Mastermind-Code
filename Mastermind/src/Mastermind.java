@@ -224,7 +224,7 @@ public class Mastermind extends Board {
 
 	/**
 	 * @return an array with the number of black pegs, white pegs, and null pegs
-	 *         respectively
+	 *         respectively, in the hints of the last turn taken
 	 */
 	public int[] getThePegs() {
 		int[] temp = new int[] { 0, 0, 0 };

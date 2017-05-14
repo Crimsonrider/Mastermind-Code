@@ -25,7 +25,7 @@ public abstract class Board {
 	public abstract void initiateTurn();
 
 	/**
-	 * This method prints "You win! ^-^"
+	 * This method prints and displays "You win! ^-^"
 	 */
 	public void youWin() {
 		Driver.currentGame.messageBox.setText("You win! ^-^");
@@ -33,7 +33,7 @@ public abstract class Board {
 	}
 
 	/**
-	 * This method prints "You lose! D:"
+	 * This method prints and displays "You lose! D:"
 	 */
 	public void youLose() {
 		Driver.currentGame.messageBox.setText("You lose! D:");
