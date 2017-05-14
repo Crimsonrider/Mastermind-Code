@@ -1,4 +1,13 @@
-import java.util.ArrayList;
+
+//import java.util.ArrayList;
+//import java.util.Arrays;
+//import java.util.Iterator;
+//import java.util.List;
+//import java.util.Random;
+//import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -135,8 +144,9 @@ public class Mastermind extends Board {
 	@Override
 	/**
 	 * This method checks if the marble is in the right color and place
+	 * 
 	 * @return true if a black peg must be placed
-	 * @return false if a white peg or no peg must be placed. 
+	 * @return false if a white peg or no peg must be placed.
 	 */
 	public boolean isCorrect() {
 		for (int i = 0; i < colors.length; i++) {
@@ -187,10 +197,10 @@ public class Mastermind extends Board {
 
 		if (isCorrect()) {
 			youWin();
-		} else if (turn > 2) {
+		} else if (turn > 10) {
 			youLose();
 		} else {
-			// turn <= 2 initiateTurn();
+			// turn <= 10 initiateTurn();
 		}
 
 	}
