@@ -78,7 +78,7 @@ public class Driver {
 	}
 
 	/**
-	 * Tests the isCorrect() method in the Mastermind class.
+	 * Tests the isCorrect() method in the Mastermind class
 	 */
 	private static void mastermindIsCorrect() {
 		System.out.println("TESTING isCorrect()");
