@@ -826,6 +826,7 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		else if (e.getSource().equals(reset)) {
 			this.game = new Mastermind();
 			turnCount.setText("Turn " + game.turn);
+			messageBox.setText("");
 			a1L.setSelectedIndex(0); a2L.setSelectedIndex(0); a3L.setSelectedIndex(0); a4L.setSelectedIndex(0);
 			b1L.setSelectedIndex(0); b2L.setSelectedIndex(0); b3L.setSelectedIndex(0); b4L.setSelectedIndex(0);
 			c1L.setSelectedIndex(0); c2L.setSelectedIndex(0); c3L.setSelectedIndex(0); c4L.setSelectedIndex(0);
@@ -917,18 +918,123 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	
 	private void setPegs() {
 		int[] temp = game.getThePegs();
-		ImageIcon[] pegs = new ImageIcon[] {new ImageIcon("Mastermind/images/black.jpg"), new ImageIcon("Mastermind/images/white.jpg"), new ImageIcon()};
+		ImageIcon[] pegs = new ImageIcon[] {new ImageIcon("Mastermind/images/Black.jpg"), new ImageIcon("Mastermind/images/white.jpg"), new ImageIcon()};
+		int i;
 		switch(game.turn) {
 			case 2:
-				int i=0;
+				i=0;
 				for (int j=0; i<4 && j<3; j++) {
 					while (temp[j] > 0) {
 						aPegs.get(i).setIcon(pegs[j]);
+						aPegs.get(i).setText("");
 						i++;
 						temp[j]--;
 					}
 				}
+				break;
+			case 3:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						bPegs.get(i).setIcon(pegs[j]);
+						bPegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;
+			case 4:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						cPegs.get(i).setIcon(pegs[j]);
+						cPegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;
+			case 5:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						dPegs.get(i).setIcon(pegs[j]);
+						dPegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;	
+			case 6:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						ePegs.get(i).setIcon(pegs[j]);
+						ePegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;
+			case 7:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						fPegs.get(i).setIcon(pegs[j]);
+						fPegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;
+			case 8:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						gPegs.get(i).setIcon(pegs[j]);
+						gPegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;
+			case 9:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						hPegs.get(i).setIcon(pegs[j]);
+						hPegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;
+			case 10:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						jPegs.get(i).setIcon(pegs[j]);
+						jPegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;
+			case 11:
+				i=0;
+				for (int j=0; i<4 && j<3; j++) {
+					while (temp[j] > 0) {
+						kPegs.get(i).setIcon(pegs[j]);
+						kPegs.get(i).setText("");
+						i++;
+						temp[j]--;
+					}
+				}
+				break;
+			default:
+				messageBox.setText("Oops! Something went wrong.");
 		}
+		
 	}
 	
 }
