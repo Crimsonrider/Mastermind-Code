@@ -1,23 +1,20 @@
 public class Marble extends GamePiece {
 	private boolean matched; // variable for the color of the guessed marble
-	private int position; // position of the marble
 
 	/**
 	 * This constructor creates a marble with the desired color and position
 	 * 
 	 * @param color
 	 *            - color of the new marble
-	 * @param position
-	 *            - position of the marble
 	 */
-	public Marble(String color, int position) {
+	public Marble(String color) {
 		this.color = color;
-		this.position = position;
 		matched = false;
 	}
 
 	/**
-	 * This accessor method returns if the marble already has a match
+	 * This accessor method returns whether the marble already has a match.
+	 * Marbles in the secret code will not have a match; only guess Marbles will.
 	 * 
 	 * @return true if the marble already has a match, false otherwise
 	 */

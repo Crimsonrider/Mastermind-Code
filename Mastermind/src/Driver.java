@@ -10,17 +10,17 @@ public class Driver {
 			currentGame.setVisible(true);
 
 		});
-		// Marble m1 = new Marble("red", 1);
-		// Marble m2 = new Marble("red", 2);
+		// Marble m1 = new Marble("red");
+		// Marble m2 = new Marble("red");
 		// System.out.println("Testing matches method");
 		// System.out.println(m1.matches(m2));
 		//
-		// Marble m3 = new Marble("red", 1);
-		// Marble m4 = new Marble("blue", 2);
+		// Marble m3 = new Marble("red");
+		// Marble m4 = new Marble("blue");
 		// System.out.println(m3.matches(m4));
 
-		Marble m1 = new Marble("red", 1);
-		Marble m2 = new Marble("red", 2);
+		Marble m1 = new Marble("red");
+		Marble m2 = new Marble("red");
 		System.out.println("Testing matches method");
 		System.out.println(m1.matches(m2));
 

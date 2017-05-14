@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
 public class Mastermind extends Board {
 	private final boolean PRINT_FOR_DEBUGGING = true;
-	private final long SEED = 1; // goes in the first constructor
 
 	String[] colors = { "red", "blue", "green", "yellow" }; // four color
 															// options for the
@@ -27,7 +29,7 @@ public class Mastermind extends Board {
 		Random rand = new Random();
 		for (int i = 0; i < colors.length; i++) {
 			int index = rand.nextInt(colors.length);
-			Marble a = new Marble(colors[index], i);
+			Marble a = new Marble(colors[index]);
 			board[0][i] = a;
 			secretColorCount[index]++;
 		}
@@ -45,7 +47,7 @@ public class Mastermind extends Board {
 		Random rand = new Random(theSeed);
 		for (int i = 0; i < colors.length; i++) {
 			int index = rand.nextInt(colors.length);
-			Marble a = new Marble(colors[index], i);
+			Marble a = new Marble(colors[index]);
 			board[0][i] = a;
 			secretColorCount[index]++;
 		}
@@ -164,25 +166,14 @@ public class Mastermind extends Board {
 		System.out.println("Turn " + turn);
 		addPegs();
 		if (PRINT_FOR_DEBUGGING) {
-			System.out.print("Secret code: ");
-			for (int i = 0; i < colors.length; i++) {
-				System.out.print(board[0][i] + " ");
-			}
-			System.out.println();
+			System.out.println("Secret code: " + secretCode());
 			System.out.print("Guess: ");
 			for (int i = 0; i < colors.length; i++) {
 				System.out.print(board[turn][i] + " ");
 			}
 			System.out.println();
 		}
-		System.out.print("Hints: ");
-		for (int i = colors.length; i < board[0].length; i++) {
-			if (PRINT_FOR_DEBUGGING && board[turn][i] == null)
-				System.out.print("none ");
-			else
-				System.out.print(board[turn][i] + " ");
-		}
-		System.out.println();
+		System.out.println("Hints: " + getHints());
 		turn++;
 
 		if (isCorrect()) {
@@ -201,7 +192,7 @@ public class Mastermind extends Board {
 	 * @return the colors of the four marbles in the secret code
 	 */
 	public String secretCode() {
-		return secCode(colors.length);
+		return secCode(colors.length-1);
 	}
 
 	/**
@@ -210,7 +201,7 @@ public class Mastermind extends Board {
 	 * @return the colors of the four marbles in the secret code
 	 */
 	public String secCode(int index) {
-		while (index >= 0) {
+		if (index >= 0) {
 			return secCode(index - 1) + " " + board[0][index];
 		}
 		return " ";

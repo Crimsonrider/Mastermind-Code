@@ -616,10 +616,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 		if (e.getSource().equals(go)) {
 			switch(game.turn) {
 				case 1:
-					game.board[1][0] = new Marble((String) a1L.getSelectedItem(), 0);
-					game.board[1][1] = new Marble((String) a2L.getSelectedItem(), 1);
-					game.board[1][2] = new Marble((String) a3L.getSelectedItem(), 2);
-					game.board[1][3] = new Marble((String) a4L.getSelectedItem(), 3);
+					game.board[1][0] = new Marble((String) a1L.getSelectedItem());
+					game.board[1][1] = new Marble((String) a2L.getSelectedItem());
+					game.board[1][2] = new Marble((String) a3L.getSelectedItem());
+					game.board[1][3] = new Marble((String) a4L.getSelectedItem());
 					game.initiateTurn();
 					
 					turnCount.setText("Turn 2");
@@ -637,10 +637,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					
 					break;
 				case 2:
-					game.board[2][0] = new Marble((String) b1L.getSelectedItem(), 0);
-					game.board[2][1] = new Marble((String) b2L.getSelectedItem(), 1);
-					game.board[2][2] = new Marble((String) b3L.getSelectedItem(), 2);
-					game.board[2][3] = new Marble((String) b4L.getSelectedItem(), 3);
+					game.board[2][0] = new Marble((String) b1L.getSelectedItem());
+					game.board[2][1] = new Marble((String) b2L.getSelectedItem());
+					game.board[2][2] = new Marble((String) b3L.getSelectedItem());
+					game.board[2][3] = new Marble((String) b4L.getSelectedItem());
 					game.initiateTurn();
 					//messageBox.setText(game.getHints());
 
@@ -658,10 +658,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					c4L.setEnabled(true);
 					break;
 				case 3:
-					game.board[3][0] = new Marble((String) c1L.getSelectedItem(), 0);
-					game.board[3][1] = new Marble((String) c2L.getSelectedItem(), 1);
-					game.board[3][2] = new Marble((String) c3L.getSelectedItem(), 2);
-					game.board[3][3] = new Marble((String) c4L.getSelectedItem(), 3);
+					game.board[3][0] = new Marble((String) c1L.getSelectedItem());
+					game.board[3][1] = new Marble((String) c2L.getSelectedItem());
+					game.board[3][2] = new Marble((String) c3L.getSelectedItem());
+					game.board[3][3] = new Marble((String) c4L.getSelectedItem());
 					game.initiateTurn();
 					turnCount.setText("Turn 4");
 					setPegs();
@@ -678,10 +678,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					d4L.setEnabled(true);
 					break;
 				case 4:
-					game.board[4][0] = new Marble((String) d1L.getSelectedItem(), 0);
-					game.board[4][1] = new Marble((String) d2L.getSelectedItem(), 1);
-					game.board[4][2] = new Marble((String) d3L.getSelectedItem(), 2);
-					game.board[4][3] = new Marble((String) d4L.getSelectedItem(), 3);
+					game.board[4][0] = new Marble((String) d1L.getSelectedItem());
+					game.board[4][1] = new Marble((String) d2L.getSelectedItem());
+					game.board[4][2] = new Marble((String) d3L.getSelectedItem());
+					game.board[4][3] = new Marble((String) d4L.getSelectedItem());
 					game.initiateTurn();
 					turnCount.setText("Turn " + 5);
 					setPegs();
@@ -698,10 +698,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					e4L.setEnabled(true);
 					break;	
 				case 5:
-					game.board[5][0] = new Marble((String) e1L.getSelectedItem(), 0);
-					game.board[5][1] = new Marble((String) e2L.getSelectedItem(), 1);
-					game.board[5][2] = new Marble((String) e3L.getSelectedItem(), 2);
-					game.board[5][3] = new Marble((String) e4L.getSelectedItem(), 3);
+					game.board[5][0] = new Marble((String) e1L.getSelectedItem());
+					game.board[5][1] = new Marble((String) e2L.getSelectedItem());
+					game.board[5][2] = new Marble((String) e3L.getSelectedItem());
+					game.board[5][3] = new Marble((String) e4L.getSelectedItem());
 					game.initiateTurn();
 					turnCount.setText("Turn " + 6);
 					setPegs();
@@ -718,10 +718,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					f4L.setEnabled(true);
 					break;
 				case 6:
-					game.board[6][0] = new Marble((String) f1L.getSelectedItem(), 0);
-					game.board[6][1] = new Marble((String) f2L.getSelectedItem(), 1);
-					game.board[6][2] = new Marble((String) f3L.getSelectedItem(), 2);
-					game.board[6][3] = new Marble((String) f4L.getSelectedItem(), 3);
+					game.board[6][0] = new Marble((String) f1L.getSelectedItem());
+					game.board[6][1] = new Marble((String) f2L.getSelectedItem());
+					game.board[6][2] = new Marble((String) f3L.getSelectedItem());
+					game.board[6][3] = new Marble((String) f4L.getSelectedItem());
 					game.initiateTurn();
 					turnCount.setText("Turn " + 7);
 					setPegs();
@@ -738,10 +738,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					g4L.setEnabled(true);
 					break;
 				case 7:
-					game.board[7][0] = new Marble((String) g1L.getSelectedItem(), 0);
-					game.board[7][1] = new Marble((String) g2L.getSelectedItem(), 1);
-					game.board[7][2] = new Marble((String) g3L.getSelectedItem(), 2);
-					game.board[7][3] = new Marble((String) g4L.getSelectedItem(), 3);
+					game.board[7][0] = new Marble((String) g1L.getSelectedItem());
+					game.board[7][1] = new Marble((String) g2L.getSelectedItem());
+					game.board[7][2] = new Marble((String) g3L.getSelectedItem());
+					game.board[7][3] = new Marble((String) g4L.getSelectedItem());
 					game.initiateTurn();
 					turnCount.setText("Turn " + 8);
 					setPegs();
@@ -758,10 +758,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					h4L.setEnabled(true);
 					break;
 				case 8:
-					game.board[8][0] = new Marble((String) h1L.getSelectedItem(), 0);
-					game.board[8][1] = new Marble((String) h2L.getSelectedItem(), 1);
-					game.board[8][2] = new Marble((String) h3L.getSelectedItem(), 2);
-					game.board[8][3] = new Marble((String) h4L.getSelectedItem(), 3);
+					game.board[8][0] = new Marble((String) h1L.getSelectedItem());
+					game.board[8][1] = new Marble((String) h2L.getSelectedItem());
+					game.board[8][2] = new Marble((String) h3L.getSelectedItem());
+					game.board[8][3] = new Marble((String) h4L.getSelectedItem());
 					game.initiateTurn();
 					turnCount.setText("Turn " + 9);
 					setPegs();
@@ -778,10 +778,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					j4L.setEnabled(true);
 					break;
 				case 9:
-					game.board[9][0] = new Marble((String) j1L.getSelectedItem(), 0);
-					game.board[9][1] = new Marble((String) j2L.getSelectedItem(), 1);
-					game.board[9][2] = new Marble((String) j3L.getSelectedItem(), 2);
-					game.board[9][3] = new Marble((String) j4L.getSelectedItem(), 3);
+					game.board[9][0] = new Marble((String) j1L.getSelectedItem());
+					game.board[9][1] = new Marble((String) j2L.getSelectedItem());
+					game.board[9][2] = new Marble((String) j3L.getSelectedItem());
+					game.board[9][3] = new Marble((String) j4L.getSelectedItem());
 					game.initiateTurn();
 					turnCount.setText("Turn " + 10);
 					setPegs();
@@ -798,10 +798,10 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 					k4L.setEnabled(true);
 					break;
 				case 10:
-					game.board[10][0] = new Marble((String) k1L.getSelectedItem(), 0);
-					game.board[10][1] = new Marble((String) k2L.getSelectedItem(), 1);
-					game.board[10][2] = new Marble((String) k3L.getSelectedItem(), 2);
-					game.board[10][3] = new Marble((String) k4L.getSelectedItem(), 3);
+					game.board[10][0] = new Marble((String) k1L.getSelectedItem());
+					game.board[10][1] = new Marble((String) k2L.getSelectedItem());
+					game.board[10][2] = new Marble((String) k3L.getSelectedItem());
+					game.board[10][3] = new Marble((String) k4L.getSelectedItem());
 					game.initiateTurn();
 					turnCount.setText("Turn -");
 					setPegs();
