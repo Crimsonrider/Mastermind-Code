@@ -12,9 +12,9 @@ public class Peg extends GamePiece {
 	public Peg(String c) {
 		color = c;
 		if (c.equals("white")) {
-			thisIcon = new ImageIcon("Mastermind/images/white.jpg");
+			thisIcon = new ImageIcon("images/white.jpg");
 		} else {
-			thisIcon = new ImageIcon("Mastermind/images/black.jpg");
+			thisIcon = new ImageIcon("images/black.jpg");
 		}
 	}
 
