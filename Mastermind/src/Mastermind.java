@@ -226,11 +226,11 @@ public class Mastermind extends Board {
 	 */
 	public String getHints() {
 		String x = "";
-		for (int i = colors.length; i < board[0].length; i++) {
-			if (PRINT_FOR_DEBUGGING && board[turn - 1][i] == null)
+		for (int i = 4; i < 8; i++) {
+			if (PRINT_FOR_DEBUGGING && board[turn][i] == null)
 				x += "none ";
 			else
-				x += board[turn - 1][i] + " ";
+				x += board[turn][i].getColor() + " ";
 		}
 		return x;
 	}

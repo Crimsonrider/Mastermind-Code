@@ -21,6 +21,8 @@ public class Driver {
 		pegIsWhite();
 		mastermindCountColors();
 		mastermindIsCorrect();
+		mastermindSecCode();
+		mastermindGetHints();
 	}
 
 	/**
@@ -114,4 +116,42 @@ public class Driver {
 		System.out.println();
 	}
 
+	/**
+	 * Tests the secCode() method in the Mastermind class
+	 */
+	private static void mastermindSecCode() {
+		System.out.println("TESTING secCode()");
+		
+		Mastermind m = new Mastermind();
+		System.out.println("Secret Code");
+		for (int i = 0; i < 4; i++) {
+			System.out.println(m.board[0][i] + " ");
+		}
+		System.out.println();
+		System.out.println("Test secCode()");
+		System.out.println(m.secretCode());
+		
+		System.out.println();
+	}
+
+	/**
+	 * Tests the getHints() method in the Mastermind class.
+	 */
+	private static void mastermindGetHints() {
+		System.out.println("TESTING getHints()");
+
+		Mastermind m = new Mastermind();
+		
+		m.board[1][0] = new Marble("red");
+		m.board[1][1] = new Marble("blue");
+		m.board[1][2] = new Marble("green");
+		m.board[1][3] = new Marble("yellow");
+		
+		m.addPegs();
+		
+		System.out.println("Secret code: " + m.secretCode());
+		System.out.println("Hints:   " + m.getHints());
+		
+		System.out.println();
+	}
 }
