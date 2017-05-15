@@ -158,7 +158,7 @@ public class Driver {
 	}
 	
 	/**
-	 * Tests the getThePegs() method in the Mastermind class.
+	 * Tests the getThePegs() method in the Mastermind class
 	 */
 	private static void mastermindGetThePegs() {
 		System.out.println("TESTING getThePegs()");
