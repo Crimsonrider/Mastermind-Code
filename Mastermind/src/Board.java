@@ -1,13 +1,18 @@
 
+/**
+ * This class represents a game board with a turn limit and pegs/hints
+ */
 public abstract class Board {
+
 	public int turn = 1;
 	public final int turnLimit = 10;
+
 	GamePiece[][] board = new GamePiece[11][8];
 	// first row represents secret code, the rest are user guesses
 	// 4 columns for the marbles/guesses and 4 for the pegs/hints
 
 	/**
-	 * adds pegs to give hints
+	 * Adds Peg objects to the final four columns of the current row
 	 */
 	public abstract void addPegs();
 
@@ -15,12 +20,12 @@ public abstract class Board {
 	 * Checks if the guess is correct
 	 * 
 	 * @return true if all 4 marbles are the correct color and in the correct
-	 *         position
+	 *         position; false otherwise
 	 */
 	public abstract boolean isCorrect();
 
 	/**
-	 * prompts the user to start the next turn
+	 * Begins the next turn and increments the turn count
 	 */
 	public abstract void initiateTurn();
 

@@ -1,13 +1,16 @@
 import javax.swing.ImageIcon;
-
+/**
+ * This class represents a Peg GamePiece on the board, which is used to give the player hints
+ *
+ */
 public class Peg extends GamePiece {
+	
 	private ImageIcon thisIcon;
 
 	/**
-	 * Constructor creates a new peg object with the desired color
-	 * 
-	 * @param c
-	 *            - color
+	 * Constructor initializes color and thisIcon based on the argument.
+	 * Any Peg that is not white will have a black Peg icon.
+	 * @param c - color
 	 */
 	public Peg(String c) {
 		color = c;
@@ -19,14 +22,15 @@ public class Peg extends GamePiece {
 	}
 
 	/**
-	 * This method checks if the peg is white
+	 * Checks to see if the Peg is white
+	 * @return true if the Peg is white; false otherwise
 	 */
 	public boolean isWhite() {
 		return (getColor().equals("white"));
 	}
 
 	/**
-	 * accessor method for the icon
+	 * Accessor method for the icon of the Peg
 	 * 
 	 * @return thisIcon
 	 */
@@ -35,7 +39,8 @@ public class Peg extends GamePiece {
 	}
 
 	/**
-	 * @return the color of the peg
+	 * Returns the color of the Peg
+	 * @return color
 	 */
 	public String toString() {
 		return color;

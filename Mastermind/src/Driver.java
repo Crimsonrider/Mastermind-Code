@@ -1,10 +1,16 @@
 import java.awt.EventQueue;
 
+/**
+ * This class launches the Mastermind game and tests various methods from the other classes on the console
+ * 
+ */
 public class Driver {
 	public static GUI currentGame;
 
+	/**
+	 * Initializes currentGame and calls the test methods
+	 */
 	public static void main(String[] args) {
-
 		EventQueue.invokeLater(() -> {
 			currentGame = new GUI();
 			currentGame.setVisible(true);
@@ -15,9 +21,6 @@ public class Driver {
 		pegIsWhite();
 		mastermindCountColors();
 		mastermindIsCorrect();
-		mastermindInitiateTurn();
-		mastermindGetThePegs();
-
 	}
 
 	/**
@@ -86,12 +89,12 @@ public class Driver {
 		Mastermind m = new Mastermind();
 
 		System.out.println("Test case 1: all black");
-		for (int i=0; i<4; i++) {
-			m.board[1][i+4] = new Peg("black");
+		for (int i = 0; i < 4; i++) {
+			m.board[1][i + 4] = new Peg("black");
 		}
 		m.turn++;
 		System.out.println("\t" + m.isCorrect());
-		
+
 		System.out.println("Test case 2: some black");
 		m.board[1][4] = new Peg("black");
 		m.board[1][5] = new Peg("white");
@@ -99,7 +102,7 @@ public class Driver {
 		m.board[1][4] = new Peg("black");
 		m.turn++;
 		System.out.println("\t" + m.isCorrect());
-		
+
 		System.out.println("Test case 3: no black");
 		m.board[1][4] = new Peg("none");
 		m.board[1][5] = new Peg("white");
@@ -107,21 +110,8 @@ public class Driver {
 		m.board[1][4] = new Peg("white");
 		m.turn++;
 		System.out.println("\t" + m.isCorrect());
-		
+
 		System.out.println();
 	}
 
-	/**
-	 * Tests the initiateTurn() method in the Mastermind class
-	 */
-	private static void mastermindInitiateTurn() {
-
-	}
-
-	/**
-	 * Tests the getThePegs() method in the Mastermind class
-	 */
-	private static void mastermindGetThePegs() {
-
-	}
 }

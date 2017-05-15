@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.GroupLayout.Alignment;
-
+/**
+ * This class creates the UI for the game.
+ *
+ */
 public class GUI extends JFrame implements ItemListener, ActionListener {
 	public Mastermind game; //the active game shown
 	
@@ -99,9 +102,9 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	private ArrayList<JLabel> kPegs = new ArrayList<JLabel>(Arrays.asList(kPeg1, kPeg2, kPeg3, kPeg4));
 
 	/**
-	 * General set-up: 
-	 * sets title and icon of window, 
-	 * 	initialises a Mastermind game with no seed,
+	 * Performs general set-up: 
+	 *  sets title and icon of window, 
+	 *  initialises a Mastermind game with no seed,
 	 * 	intialises turnCount,
 	 * 	calls initUI()
 	 */
@@ -119,10 +122,11 @@ public class GUI extends JFrame implements ItemListener, ActionListener {
 	
 	
 	/**
-	 * sets ActionListeners and ItemListeners,
-	 * adds basic components to panels,
-	 * disables components in rows 2-10 of the game
-	 * calls various layout methods
+	 * Performs operative set-up:
+	 *  sets ActionListeners and ItemListeners,
+	 *  adds basic components to panels,
+	 *  disables components in rows 2-10 of the game
+	 *  calls various layout methods
 	 */
 	public void initUI() {
 		
