@@ -17,6 +17,15 @@ public class Driver {
 
 		});
 
+		// gamepieceMatches();
+		// pegIsWhite();
+		// mastermindCountColors();
+		// mastermindIsCorrect();
+		// mastermindInitiateTurn();
+		// mastermindGetThePegs();
+		// mastermindSecCode();
+		mastermindGetHints();
+
 		gamepieceMatches();
 		pegIsWhite();
 		mastermindCountColors();
@@ -114,4 +123,41 @@ public class Driver {
 		System.out.println();
 	}
 
+	/**
+	 * Tests the initiateTurn() method in the Mastermind class
+	 */
+	private static void mastermindInitiateTurn() {
+		System.out.println();
+	}
+
+	/**
+	 * Tests the getThePegs() method in the Mastermind class
+	 */
+	private static void mastermindGetThePegs() {
+
+	}
+
+	private static void mastermindSecCode() {
+		Mastermind m = new Mastermind();
+		System.out.println("Secret Code");
+		for (int i = 0; i < 4; i++) {
+			System.out.println(m.board[0][i] + " ");
+		}
+		System.out.println();
+		System.out.println("Test secCode()");
+		System.out.println(m.secretCode());
+	}
+
+	private static void mastermindGetHints() {
+		Mastermind m = new Mastermind();
+		System.out.println("Secret code" + m.secretCode());
+		m.board[m.turn][0] = new Marble("red");
+		m.board[m.turn][1] = new Marble("yellow");
+		m.board[m.turn][2] = new Marble("green");
+		m.board[m.turn][3] = new Marble("blue");
+
+		// m.turn++;
+
+		System.out.println(m.getHints());
+	}
 }
