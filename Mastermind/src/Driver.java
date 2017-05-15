@@ -17,21 +17,13 @@ public class Driver {
 
 		});
 
-		// gamepieceMatches();
-		// pegIsWhite();
-		// mastermindCountColors();
-		// mastermindIsCorrect();
-		// mastermindInitiateTurn();
-		// mastermindGetThePegs();
-		// mastermindSecCode();
-		mastermindGetHints();
-
-		gamepieceMatches();
-		pegIsWhite();
-		mastermindCountColors();
-		mastermindIsCorrect();
-		mastermindSecCode();
-		mastermindGetHints();
+		 gamepieceMatches();
+		 pegIsWhite();
+		 mastermindCountColors();
+		 mastermindIsCorrect();
+		 mastermindSecCode();
+		 mastermindGetHints();
+		 mastermindGetThePegs();
 	}
 
 	/**
@@ -134,10 +126,11 @@ public class Driver {
 		Mastermind m = new Mastermind();
 		System.out.println("Secret Code");
 		for (int i = 0; i < 4; i++) {
-			System.out.println(m.board[0][i] + " ");
+			System.out.println(" " + m.board[0][i] + " ");
 		}
 		System.out.println();
-		System.out.println("Test secCode()");
+		
+		System.out.print("Compared to: ");
 		System.out.println(m.secretCode());
 		
 		System.out.println();
@@ -161,6 +154,45 @@ public class Driver {
 		System.out.println("Secret code: " + m.secretCode());
 		System.out.println("Hints:   " + m.getHints());
 		
+		System.out.println();
+	}
+	
+	/**
+	 * Tests the getThePegs() method in the Mastermind class.
+	 */
+	private static void mastermindGetThePegs() {
+		System.out.println("TESTING getThePegs()");
+
+		Mastermind m = new Mastermind();
+		int[] temp;
+
+		System.out.println("Test case 1: 1 white, 3 black");
+		m.board[1][4] = new Peg("black");
+		m.board[1][5] = new Peg("white");
+		m.board[1][6] = new Peg("black");
+		m.board[1][7] = new Peg("black");
+		m.turn++;
+		temp = m.getThePegs();
+		System.out.println("\t" + temp[0] + " blacks, " + temp[1] + " whites, " + temp[2] + " null.");
+
+		System.out.println("Test case 2: 2 black, 1 white, and 1 null");
+		m.board[2][4] = new Peg("black");
+		m.board[2][5] = new Peg("white");
+		m.board[2][6] = null;
+		m.board[2][7] = new Peg("black");
+		m.turn++;
+		temp = m.getThePegs();
+		System.out.println("\t" + temp[0] + " blacks, " + temp[1] + " whites, " + temp[2] + " null.");
+
+		System.out.println("Test case 3: 3 white, 1 null");
+		m.board[3][4] = null;
+		m.board[3][5] = new Peg("white");
+		m.board[3][6] = new Peg("white");
+		m.board[3][7] = new Peg("white");
+		m.turn++;
+		temp = m.getThePegs();
+		System.out.println("\t" + temp[0] + " blacks, " + temp[1] + " whites, " + temp[2] + " null.");
+
 		System.out.println();
 	}
 }
