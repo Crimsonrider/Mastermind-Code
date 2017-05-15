@@ -17,6 +17,15 @@ public class Driver {
 
 		});
 
+		// gamepieceMatches();
+		// pegIsWhite();
+		// mastermindCountColors();
+		// mastermindIsCorrect();
+		// mastermindInitiateTurn();
+		// mastermindGetThePegs();
+		// mastermindSecCode();
+		mastermindGetHints();
+
 		gamepieceMatches();
 		pegIsWhite();
 		mastermindCountColors();
